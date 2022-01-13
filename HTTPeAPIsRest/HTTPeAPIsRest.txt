@@ -1,0 +1,135 @@
+JStack
+
+# O que é uma API?
+Application Programming Interface
+  Permite que a gente conect várias aplicações de diferentes tipos em uma mesma fonte de dados.
+
+Aplicações
+  Desktop
+  Mobile
+  Web
+
+API -> Fonte de dados
+
+---------------------------------------------
+
+# HTTP (Hypertext Transfer Protocol)
+
+É basicamente uma troca de mensagem entre duas pontas, um programa ou dispositivo, faz a request para um servidor que responde o que foi pedido.
+
+---------------------------------------------
+
+# Request
+
+  URL/endpoint -> Identificar os recursos
+  Query Params -> Parâmetros na URL
+  Método -> Identificação de qual ação que a URL está pedindo
+  Headers -> Informações adicionais
+  Body -> Corpo da mensagem
+
+
+# URL/endpoint & Query Params
+
+https://mywebsite.com/products?page3&orderBy=name
+
+URL => https://mywebsite.com
+endpoint => /products
+Query Params => ?page3&orderBy=name
+
+
+# Métodos
+
+Principais métodos:
+  GET: consulta de dados
+  POST: criação de registros
+  PUT: alteração de registros
+  DELETE: deltar registros
+
+
+# Headers
+
+Serve para trocar informações adicionais entre cliente e servidor, é possível enviar tanto na request, quanto na response
+Existem headers pré definidos porém também podemos criar header customizados.
+
+Nome e valor separdos por dois pontos:
+  Content-Type: application/json -> indica qual que é o tipo de mensagem enviada
+
+Headers são case insensitive
+
+Uma boa prática é adicionar um X antes dos nossos headers customizados:
+  X-Org-id: 1123
+
+
+
+# Body
+
+Só está presente para requisições do tipo POST e PUT.
+formato JSON (JavaScript Object Notation)
+
+---------------------------------------------
+
+# Request
+
+  Headers -> Informações adicionais
+  Content Type -> Tipo do conteúdo da resposta
+  Status Code -> Indica o que aconteceu com a request
+  Body -> Dados que foram requisitados
+
+
+# Status Code
+
+Categorizados pelo primeiro dígito:
+  - De 100-199: Respostas de informação;
+  - De 200-299: Respostas de sucesso;
+  - De 300-399: Redirecionamentos;
+  - De 400-499: Erros do cliente;
+  - De 500-599: Erros do servidor.
+
+Principais códigos:
+  - 200: OK;
+  - 201: Created;
+  - 204: No Content;
+  - 400: Bad request;
+  - 401/403: Unauthorized;
+  - 404: Not Found;
+  - 405: Method Not Allowed;
+  - 409: Conflict;
+  - 500: Internal Server Error.
+
+---------------------------------------------
+
+Padrão Rest (Representational State Transfer)
+
+-> um padrão para construção de APIs.
+-> Usa o protocolo HTTP.
+-> Retorna uma representação do estado.
+
+# Nomes de Endponts
+
+Utilizar o nome dos recursos sempre no plural
+
+  GET     /products
+  GET     /products/10
+  POST    /products
+  PUT     /products/10
+  DELETE  /products/10
+
+
+# Representação do estado
+
+Retorno em formato JSON
+
+{
+  "products": [
+    {
+      "name": "iPhone 11 PRo",
+      "price": 6999.00,
+      "category": "Celulares"
+    },
+    {
+      "name": "iPad Pro",
+      "price": 8499.00,
+      "category": "Tablets"
+    }
+  ]
+}
